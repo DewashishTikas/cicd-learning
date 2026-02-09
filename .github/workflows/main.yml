@@ -4,13 +4,5 @@ jobs:
   my-first-job:
     runs-on: ubuntu-latest
     steps:
-        - name: List all files 
-          run: ls -a
-        - name: print current directory
-          run: pwd
-        - name: create app.js and insert some code
-          run: echo "console.log('hello world')" > app.js
-        - name: List all files 
-          run: ls -a
-        - name: run app.js
-          run: node app.js
+        - name: print cpu info
+          run: lscpu
