@@ -9,4 +9,3 @@ jobs:
            lscpu
            nproc
            free -h|
-
