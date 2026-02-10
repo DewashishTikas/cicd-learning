@@ -1,8 +1,13 @@
 name: my workflow
-on: [workflow_dispatch, push]
+on: 
+  push:
+    branches: [main,dev]
 jobs:
+     
   my-first-job:
     runs-on: ubuntu-latest
+    environment: ${{github.ref_name == 'main' && 'PROD' || 'DEVELOPMENT'}}
     steps:
         - run: echo ${{github.ref_name}}
+        - run: echo ${{vars.APPNAME}}
         
