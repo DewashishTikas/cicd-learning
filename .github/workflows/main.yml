@@ -2,10 +2,11 @@ name: my workflow
 on: [workflow_dispatch, push]
 jobs:
   my-first-job:
+    environment: DEVELOPMENT
     env:
       MY_ENV_VAR: "my env var value"
     runs-on: ubuntu-latest
     steps:
-        - run: echo ${{vars.MYVAR}}
-        - run: echo ${{secrets.MYSECRET}}
+        - run: echo ${{vars.DEVVAR}}
+        - run: echo ${{secrets.DEVSECRET}}
         
