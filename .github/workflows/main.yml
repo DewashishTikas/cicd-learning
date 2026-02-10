@@ -3,7 +3,7 @@ on: [workflow_dispatch, push]
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    needs: my-second-job
     steps:
         - name: Checkout Code
           uses: actions/checkout@v6
@@ -11,3 +11,14 @@ jobs:
           run: ls -a
         - name: Print workflow file contents
           run: cat .github/workflows/main.yml
+  my-second-job:
+    runs-on: ubuntu-latest
+    steps:
+        - name: print node version
+          run: node -v
+        - name: Upgrade node version
+          uses: actions/setup-node@v6
+          with:
+            node-version: 'latest'
+        - name: print node version
+          run: node -v
