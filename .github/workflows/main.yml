@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - run: echo ${{vars.MYVAR}}
-        - run: echo ${{env.MYSECREAT}}
+        - run: echo ${{env.MYSECRET}}
         
