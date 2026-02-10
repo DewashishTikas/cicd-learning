@@ -6,18 +6,5 @@ jobs:
       MY_ENV_VAR: "my env var value"
     runs-on: ubuntu-latest
     steps:
-        - run: echo ${{true}}
-        - run: echo ${{5 > 4}}
-        - run: echo ${{! true}}
-        - run: echo ${{'hello' == 'hello'}}
-        - run: echo ${{5>6 && 10 > 9}}
-        - name: "Printing github"
-          run: echo "${{toJson(github)}}"
-        - name: "Printing env"
-          run: echo "${{toJson(env)}}"
-        - name: "Printing secrets"
-          run: echo "${{toJson(secrets)}}"
-        - name: "Printing vars"
-          run: echo "${{toJson(vars)}}"
-        - name: "Printing runner"
-          run: echo "${{toJson(runner)}}"
+        - run: echo ${{env.MY_ENV_VAR}}
+        
