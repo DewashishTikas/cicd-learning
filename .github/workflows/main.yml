@@ -2,23 +2,22 @@ name: my workflow
 on: [workflow_dispatch, push]
 jobs:
   my-first-job:
-    runs-on: ubuntu-latest
-    needs: my-second-job
-    steps:
-        - name: Checkout Code
-          uses: actions/checkout@v6
-        - name: List all Files
-          run: ls -a
-        - name: Print workflow file contents
-          run: cat .github/workflows/main.yml
-  my-second-job:
+    env:
+      MY_ENV_VAR: "my env var value"
     runs-on: ubuntu-latest
     steps:
-        - name: print node version
-          run: node -v
-        - name: Upgrade node version
-          uses: actions/setup-node@v6
-          with:
-            node-version: 'latest'
-        - name: print node version
-          run: node -v
+        - run: echo ${{true}}
+        - run: echo ${{5 > 4}}
+        - run: echo ${{! true}}
+        - run: echo ${{'hello' == 'hello'}}
+        - run: echo ${{5>6 && 10 > 9}}
+        - name: "Printing github"
+          run: echo "${{toJson(github)}}"
+        - name: "Printing env"
+          run: echo "${{toJson(env)}}"
+        - name: "Printing secrets"
+          run: echo "${{toJson(secrets)}}"
+        - name: "Printing vars"
+          run: echo "${{toJson(vars)}}"
+        - name: "Printing runner"
+          run: echo "${{toJson(runner)}}"
