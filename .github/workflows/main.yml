@@ -9,5 +9,6 @@ jobs:
     environment: ${{github.ref_name == 'main' && 'PROD' || 'DEVELOPMENT'}}
     steps:
         - run: echo ${{github.ref_name}}
+          if: github.ref_name == 'main'
         - run: echo ${{vars.APPNAME}}
         
