@@ -5,10 +5,13 @@ on:
 jobs:
      
   my-first-job:
+    if: 5>3
     runs-on: ubuntu-latest
-    environment: ${{github.ref_name == 'main' && 'PROD' || 'DEVELOPMENT'}}
     steps:
-        - run: echo ${{github.ref_name}}
-          if: github.ref_name == 'main'
-        - run: echo ${{vars.APPNAME}}
+        - run: echo "run first job"
+  my-second-job:
+    if: 5<3
+    runs-on: ubuntu-latest
+    steps:
+        - run: echo "run second job"
         
