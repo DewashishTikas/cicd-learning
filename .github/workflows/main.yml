@@ -6,5 +6,6 @@ jobs:
       MY_ENV_VAR: "my env var value"
     runs-on: ubuntu-latest
     steps:
-        - run: echo ${{env.MY_ENV_VAR}}
+        - run: echo ${{vars.MYVAR}}
+        - run: echo ${{env.MYSECREAT}}
         
